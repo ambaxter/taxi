@@ -7,7 +7,7 @@ RUN GIT_COMMIT=$(git rev-list -1 HEAD) && go build -ldflags "-X main.CommitSHA=$
 
 ARG UBI_REGISTRY_HOST=registry.access.redhat.com
 
-FROM $UBI_REGISTRY_HOST/ubi9/ubi-minimal
+FROM ${UBI_REGISTRY_HOST}/ubi9/ubi-minimal
 WORKDIR /root/
 COPY --from=build /go/build/booktaxi .
 
